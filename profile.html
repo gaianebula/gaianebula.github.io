@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="tailwind.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Profile | Gaia Monteforte</title>
+    <script src="bio.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body class="container lg:text-xl lg:max-w-screen-lg lg:mx-auto">
+    <header class="flex justify-between items-center md:w-full md:fixed md:h-16 lg:max-w-screen-lg">
+      <a href="#menu" id="home" class="inline-block md:hidden py-4 px-6 appearance-none focus:outline-none">
+        <svg id="btn-hamburger" class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </a>
+
+      <a class="md:w-full py-4 px-6 md:py-0 text-3xl md:text-4xl" href="work.html" aria-label="Works"></a>
+
+      <nav id="menu" class="container p-4 md:py-2">
+        <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20">
+          <svg id="btn-close" class="fill-current h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <time>Close</time>
+            <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
+          </svg>
+        </a>
+
+        <ul class="min-h-full flex flex-col md:flex-row justify-around md:justify-end items-center relative z-10 py-12 md:py-0 text-3xl md:text-2xl">
+          <li class="px-4 hover:text-blue-400"><a href="home.html">Home</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="work.html">Works</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="profile.html">Profile</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="contact.html">Contact</a></li>
+          <li id="theme-toggle" class="px-4"><svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10v-20zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z" /></svg></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:pt-24 md:pb-12">
+      <div class="text-center">
+        <div class="profile-image-flip mx-auto mb-4" aria-label="Gaia Monteforte portrait">
+          <div class="profile-image-flip-inner">
+            <img class="profile-image-flip-front" src="assets/contact/Bio_pic.png" alt="Gaia Monteforte" />
+            <img class="profile-image-flip-back" src="assets/contact/bio_2.jpg" alt="" aria-hidden="true" />
+          </div>
+        </div>
+        <h1 class="artist-name text-5xl mb-2">Gaia Monteforte</h1>
+        <h2 class="text-xl mb-6">Freelance illustrator and comic artist</h2>
+      </div>
+
+      <div class="max-w-2xl mx-auto px-8 md:px-16">
+        <p id="artist-bio" class="leading-relaxed text-lg"></p>
+      </div>
+    </main>
+
+    <div class="social-links">
+      <a href="https://facebook.com/gaia_monteforte" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M13.4 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.3 1.4-1.3h1.5V4.6c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v1.9H8v2.8h2.4v7z" fill="var(--social-mark)"/></svg>
+      </a>
+      <a href="https://instagram.com/the_nebula_art" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="18" cy="6.5" r="1.4" fill="currentColor"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/gaia_monteforte" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="currentColor"/><path d="M6 9h3v9H6zm1.5-4a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4M11 9h2.9v1.2h.1A3.2 3.2 0 0 1 17 8.7c3 0 3.6 2 3.6 4.5V18h-3v-4.3c0-1 0-2.4-1.5-2.4s-1.8 1.1-1.8 2.3V18h-3z" fill="var(--social-mark)"/></svg>
+      </a>
+      <a href="mailto:helennmarley@gmail.com" aria-label="Email" title="Email">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <footer>
+      <div class="container flex flex-col sm:flex-row sm:flex-wrap justify-between items-center mx-auto mb-6 px-4 text-sm">
+        <p class="uppercase">©<span id="current-year"></span> Gaia Monteforte</p>
+      </div>
+    </footer>
+  </body>
+</html>

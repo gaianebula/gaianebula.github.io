@@ -1,0 +1,297 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f3ee;
+  color: #2d3748;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body > footer {
+  margin-top: auto;
+}
+
+.social-links {
+  --social-mark: #f7f3ee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0 1rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #9ca3af;
+  border-radius: 9999px;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+
+.social-icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+body.dark {
+  background: #17171c;
+  color: #f7fafc;
+}
+
+body.dark .social-links {
+  --social-mark: #17171c;
+}
+
+.artist-name {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+}
+
+header,
+nav {
+  background: rgba(247, 243, 238, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+header {
+  z-index: 50;
+}
+
+.dark header,
+.dark nav {
+  background: rgba(23, 23, 28, 0.9);
+}
+
+#menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  #menu {
+    display: block;
+    position: unset;
+    height: unset;
+  }
+}
+
+#menu:target {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .image-card img {
+    object-fit: cover;
+    width: 450px;
+    height: 350px;
+  }
+}
+
+.image-card {
+  border-color: rgba(148, 163, 184, 0.7);
+  background: rgba(255, 255, 255, 0.35);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.image-card img {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.02);
+}
+
+.image-card:hover {
+  border-color: transparent;
+  background: linear-gradient(#f7f3ee, #f7f3ee) padding-box,
+    linear-gradient(135deg, #000 0%, #777 50%, #000 100%) border-box;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+}
+
+.dark .image-card:hover {
+  background: linear-gradient(#17171c, #17171c) padding-box,
+    linear-gradient(135deg, #000 0%, #999 50%, #000 100%) border-box;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-email {
+  color: #000;
+}
+
+.contact-email:hover {
+  color: #000;
+  text-shadow: 0 0 8px rgba(190, 160, 255, 0.95), 0 0 18px rgba(190, 160, 255, 0.7);
+}
+
+.dark .contact-email {
+  color: #f7fafc;
+}
+
+.dark .contact-email:hover {
+  color: #f7fafc;
+  text-shadow: 0 0 8px rgba(190, 160, 255, 0.95), 0 0 18px rgba(190, 160, 255, 0.7);
+}
+
+.contact-form label {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #a8a29e;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+.contact-submit {
+  align-self: flex-start;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-submit:hover {
+  background: #2d3748;
+  color: #fff;
+}
+
+.dark .contact-submit:hover {
+  background: #f7fafc;
+  color: #17171c;
+}
+
+.contact-note {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.profile-image-flip {
+  width: 8rem;
+  height: 8rem;
+  perspective: 1000px;
+}
+
+.profile-image-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 rgba(190, 160, 255, 0);
+  transition: transform 0.7s ease, box-shadow 0.35s ease;
+}
+
+.profile-image-flip:hover .profile-image-flip-inner,
+.profile-image-flip:focus-within .profile-image-flip-inner {
+  transform: rotateY(180deg);
+  box-shadow: 0 0 18px 5px rgba(190, 160, 255, 0.7);
+}
+
+.profile-image-flip img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9999px;
+  backface-visibility: hidden;
+}
+
+.profile-image-flip-back {
+  transform: rotateY(180deg);
+}
+
+#artist-bio {
+  text-align: justify;
+  text-align-last: left;
+}
+
+@media (min-width: 768px) {
+  .profile-image-flip {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-image-flip-inner {
+    transition: none;
+  }
+}
+
+.lightroom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightroom img,
+.lightroom div {
+  width: 50%;
+  height: auto;
+  background: #fff;
+  color: #2d3748;
+}
+
+@media only screen and (max-width: 767px) {
+  .lightroom img,
+  .lightroom div {
+    width: 90%;
+  }
+}
+
+@supports (position: fixed) {
+  @media only screen and (max-width: 767px) {
+    #menu {
+      position: fixed;
+    }
+  }
+
+  .lightroom {
+    position: fixed;
+  }
+}
