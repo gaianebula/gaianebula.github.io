@@ -12,7 +12,7 @@
 
   <body class="container lg:text-xl lg:max-w-screen-lg lg:mx-auto">
     <header class="flex justify-between items-center md:w-full md:fixed md:h-16 lg:max-w-screen-lg">
-      <a href="#menu" id="home" class="inline-block md:hidden py-4 px-6 appearance-none focus:outline-none">
+      <a href="#menu" id="home" class="inline-block md:hidden py-4 px-6 appearance-none focus:outline-none" aria-label="Open menu" aria-controls="menu">
         <svg id="btn-hamburger" class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <title>Menu</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -21,9 +21,9 @@
 
       <a class="md:w-full py-4 px-6 md:py-0 text-3xl md:text-4xl" href="work.html" aria-label="Works"></a>
 
-      <nav id="menu" class="container p-4 md:py-2">
-        <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20">
-          <svg id="btn-close" class="fill-current h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <nav id="menu" class="container p-4 md:py-2" aria-label="Main navigation">
+        <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20" aria-label="Close menu">
+          <svg id="btn-close" class="fill-current h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <time>Close</time>
             <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
           </svg>
@@ -39,39 +39,51 @@
       </nav>
     </header>
 
-    <section id="works">
-      <div class="container mx-auto px-4 py-8 md:pt-24 md:pb-12 flex flex-wrap justify-center items-center">
-        <div class="max-w-sm md:max-w-md overflow-hidden border border-gray-400 rounded-b m-2 hover:shadow-xl hover:underline image-card">
-          <div>
-            <img class="w-full" src="assets/works/00 Gaia Monteforte_sito_trollhunters.png" alt="Trollhunters main illustration" />
-          </div>
-        </div>
+    <main id="works">
+      <div class="work-projects container mx-auto px-4 py-8 md:pt-24 md:pb-12">
+        <button class="work-project-card image-card" type="button" data-project="trollhunters" aria-haspopup="dialog">
+          <span class="work-project-preview">
+            <img class="project-preview-trollhunters" src="assets/works/trollhunters/00 Gaia Monteforte_sito_trollhunters.png" alt="" />
+          </span>
+          <span class="work-project-title">Trollhunters</span>
+        </button>
 
-        <div class="max-w-sm md:max-w-md overflow-hidden border border-gray-400 rounded-b m-2 hover:shadow-xl hover:underline image-card">
-          <div>
-            <img class="w-full" src="assets/works/01 Gaia Monteforte_sito_trollhunters_Illu.png" alt="Trollhunters illustration" />
-          </div>
-        </div>
-
-        <div class="max-w-sm md:max-w-md overflow-hidden border border-gray-400 rounded-b m-2 hover:shadow-xl hover:underline image-card">
-          <div>
-            <img class="w-full" src="assets/works/02 Gaia Monteforte_sito_trollhunters_sketches.png" alt="Trollhunters sketches" />
-          </div>
-        </div>
-
-        <div class="max-w-sm md:max-w-md overflow-hidden border border-gray-400 rounded-b m-2 hover:shadow-xl hover:underline image-card">
-          <div>
-            <img class="w-full" src="assets/works/03 Gaia Monteforte_sito_trollhunters_process.png" alt="Trollhunters process sheet" />
-          </div>
-        </div>
-
-        <div class="max-w-sm md:max-w-md overflow-hidden border border-gray-400 rounded-b m-2 hover:shadow-xl hover:underline image-card">
-          <div>
-            <img class="w-full" src="assets/works/Gaia Monteforte_sito_trollhunters_illu v3.png" alt="Trollhunters final illustration version" />
-          </div>
-        </div>
+        <button class="work-project-card image-card" type="button" data-project="magic-tales" aria-haspopup="dialog">
+          <span class="work-project-preview">
+            <img class="project-preview-magic-tails" src="assets/works/magic_tales/01_Villain con fondale.png" alt="" />
+          </span>
+          <span class="work-project-title">Magic Tails</span>
+        </button>
       </div>
-    </section>
+    </main>
+
+    <dialog id="project-dialog" class="project-dialog" aria-labelledby="project-dialog-title">
+      <div class="project-dialog-header">
+        <h2 id="project-dialog-title" class="work-project-title"></h2>
+        <button class="project-dialog-close" type="button" aria-label="Close project gallery">&times;</button>
+      </div>
+      <div class="project-popup-gallery" data-popup-project="trollhunters" hidden>
+        <img src="assets/works/trollhunters/00 Gaia Monteforte_sito_trollhunters.png" alt="Trollhunters main illustration" />
+        <img src="assets/works/trollhunters/01 Gaia Monteforte_sito_trollhunters_Illu.png" alt="Trollhunters illustration" />
+        <img src="assets/works/trollhunters/02 Gaia Monteforte_sito_trollhunters_sketches.png" alt="Trollhunters sketches" />
+        <img src="assets/works/trollhunters/03 Gaia Monteforte_sito_trollhunters_process.png" alt="Trollhunters process sheet" />
+        <img src="assets/works/trollhunters/Gaia Monteforte_sito_trollhunters_illu v3.png" alt="Trollhunters final illustration version" />
+      </div>
+      <div class="project-popup-gallery" data-popup-project="magic-tales" hidden>
+        <img src="assets/works/magic_tales/00_Villain solo fondale.png" alt="Magic Tails villain illustration without background" />
+        <img src="assets/works/magic_tales/01_Villain con fondale.png" alt="Magic Tails villain illustration with background" />
+      </div>
+    </dialog>
+
+    <dialog id="image-dialog" class="image-dialog" aria-label="Enlarged artwork">
+      <button class="image-dialog-close" type="button" aria-label="Close enlarged image">&times;</button>
+      <button class="image-dialog-nav image-dialog-previous" type="button" aria-label="Previous image">&#10094;</button>
+      <div class="image-dialog-artwork">
+        <img id="enlarged-artwork" src="" alt="" />
+        <span class="image-dialog-flash" aria-hidden="true"></span>
+      </div>
+      <button class="image-dialog-nav image-dialog-next" type="button" aria-label="Next image">&#10095;</button>
+    </dialog>
 
     <div class="social-links">
       <a href="https://facebook.com/gaia_monteforte" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">

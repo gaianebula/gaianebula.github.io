@@ -12,7 +12,7 @@
 
   <body class="container lg:text-xl lg:max-w-screen-lg lg:mx-auto">
     <header class="flex justify-between items-center md:w-full md:fixed md:h-16 lg:max-w-screen-lg">
-      <a href="#menu" id="home" class="inline-block md:hidden py-4 px-6 appearance-none focus:outline-none">
+      <a href="#menu" id="home" class="inline-block md:hidden py-4 px-6 appearance-none focus:outline-none" aria-label="Open menu" aria-controls="menu">
         <svg id="btn-hamburger" class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <title>Menu</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -21,9 +21,9 @@
 
       <a class="md:w-full py-4 px-6 md:py-0 text-3xl md:text-4xl" href="work.html" aria-label="Works"></a>
 
-      <nav id="menu" class="container p-4 md:py-2">
-        <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20">
-          <svg id="btn-close" class="fill-current h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <nav id="menu" class="container p-4 md:py-2" aria-label="Main navigation">
+        <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20" aria-label="Close menu">
+          <svg id="btn-close" class="fill-current h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <time>Close</time>
             <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
           </svg>
