@@ -502,6 +502,18 @@ header {
   object-position: center;
 }
 
+.work-project-preview .magic-tails-preview-artwork {
+  position: absolute;
+  inset: 0;
+}
+
+.work-project-preview .pledge-image-credit {
+  right: 0;
+  left: 0;
+  z-index: 2;
+  padding: 1.5rem 0.5rem 0.6rem;
+}
+
 .work-project-title {
   display: flex;
   min-height: 4.25rem;
@@ -520,6 +532,7 @@ header {
 .work-project-preview .work-project-title {
   position: absolute;
   inset: 0;
+  z-index: 1;
   align-items: center;
   justify-content: center;
   min-height: 0;
@@ -751,7 +764,9 @@ header {
 .magic-tails-villain-scene:hover .pledge-image-credit,
 .magic-tails-villain-scene:focus-within .pledge-image-credit,
 .pledge-artwork:hover .pledge-image-credit,
-.pledge-artwork:focus-within .pledge-image-credit {
+.pledge-artwork:focus-within .pledge-image-credit,
+.work-project-card:hover .magic-tails-preview-artwork .pledge-image-credit,
+.work-project-card:focus-visible .magic-tails-preview-artwork .pledge-image-credit {
   opacity: 1;
 }
 
