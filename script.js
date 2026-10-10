@@ -175,6 +175,22 @@ if (projectDialog) {
   var projectDialogTitle = document.getElementById('project-dialog-title');
   var projectDialogClose = projectDialog.querySelector('.project-dialog-close');
   var projectPopups = projectDialog.querySelectorAll('.project-popup-gallery');
+  var hydrateProjectGallery = function (projectId) {
+    projectPopups.forEach(function (popup) {
+      if (popup.dataset.popupProject !== projectId) {
+        return;
+      }
+
+      popup.querySelectorAll('img').forEach(function (image) {
+        if (!image.dataset.src || image.getAttribute('src')) {
+          return;
+        }
+
+        image.src = image.dataset.src;
+        delete image.dataset.src;
+      });
+    });
+  };
 
   document.querySelectorAll('.work-project-card').forEach(function (card) {
     card.addEventListener('click', function () {
@@ -185,6 +201,7 @@ if (projectDialog) {
       projectPopups.forEach(function (popup) {
         popup.hidden = popup.dataset.popupProject !== projectId;
       });
+      hydrateProjectGallery(projectId);
       projectDialog.showModal();
     });
   });
