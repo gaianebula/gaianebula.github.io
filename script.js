@@ -1,7 +1,85 @@
 var bioElement = document.getElementById('artist-bio');
-if (bioElement) {
-  bioElement.textContent = window.artistBio || '';
-}
+
+var languageButtons = document.querySelectorAll('.language-button');
+var updateLanguageDropdown = function (switcher) {
+  var isOpen = switcher.classList.contains('is-open');
+  switcher.querySelectorAll('.language-button').forEach(function (button) {
+    button.setAttribute('aria-expanded', button.classList.contains('is-selected') && isOpen);
+  });
+};
+
+var applyLanguage = function (language) {
+  var selectedLanguage = language === 'it' ? 'it' : 'en';
+  document.documentElement.lang = selectedLanguage;
+
+  document.querySelectorAll('[data-en], [data-it]').forEach(function (element) {
+    var translatedText = element.getAttribute('data-' + selectedLanguage);
+    if (translatedText !== null) {
+      element.textContent = translatedText;
+    }
+  });
+
+  ['aria-label', 'title', 'placeholder', 'alt'].forEach(function (attribute) {
+    document.querySelectorAll('[data-en-' + attribute + '], [data-it-' + attribute + ']').forEach(function (element) {
+      var translatedAttribute = element.getAttribute('data-' + selectedLanguage + '-' + attribute);
+      if (translatedAttribute !== null) {
+        element.setAttribute(attribute, translatedAttribute);
+      }
+    });
+  });
+
+  if (bioElement && window.artistBio) {
+    bioElement.textContent = window.artistBio[selectedLanguage];
+  }
+
+  languageButtons.forEach(function (button) {
+    var isSelected = button.dataset.language === selectedLanguage;
+    button.setAttribute('aria-pressed', isSelected);
+    button.classList.toggle('is-selected', isSelected);
+  });
+
+  document.querySelectorAll('.language-switcher').forEach(function (switcher) {
+    switcher.classList.remove('is-open');
+    updateLanguageDropdown(switcher);
+  });
+
+  localStorage.setItem('site-language', selectedLanguage);
+};
+
+languageButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    var switcher = button.closest('.language-switcher');
+    if (button.classList.contains('is-selected')) {
+      switcher.classList.toggle('is-open');
+      updateLanguageDropdown(switcher);
+      return;
+    }
+
+    applyLanguage(button.dataset.language);
+  });
+});
+
+document.addEventListener('click', function (event) {
+  document.querySelectorAll('.language-switcher.is-open').forEach(function (switcher) {
+    if (!switcher.contains(event.target)) {
+      switcher.classList.remove('is-open');
+      updateLanguageDropdown(switcher);
+    }
+  });
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.language-switcher.is-open').forEach(function (switcher) {
+      switcher.classList.remove('is-open');
+      updateLanguageDropdown(switcher);
+      switcher.querySelector('.language-button.is-selected').focus();
+    });
+  }
+});
+
+var preferredLanguage = localStorage.getItem('site-language') || 'en';
+applyLanguage(preferredLanguage);
 
 var profileImage = document.querySelector('.profile-image-flip');
 if (profileImage) {
@@ -63,9 +141,10 @@ if (contactForm) {
     event.preventDefault();
 
     var formData = new FormData(contactForm);
-    var subject = 'Portfolio contact from ' + formData.get('name');
+    var isItalian = document.documentElement.lang === 'it';
+    var subject = (isItalian ? 'Contatto dal portfolio di ' : 'Portfolio contact from ') + formData.get('name');
     var body = [
-      'Name: ' + formData.get('name'),
+      (isItalian ? 'Nome: ' : 'Name: ') + formData.get('name'),
       'Email: ' + formData.get('email'),
       '',
       formData.get('message')

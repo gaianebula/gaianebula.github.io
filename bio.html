@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Water+Brush&display=swap" rel="stylesheet" />
-    <title>Bio | Gaia Monteforte</title>
+    <title data-en="Bio | Gaia Monteforte" data-it="Biografia | Gaia Monteforte">Bio | Gaia Monteforte</title>
     <script src="bio.js"></script>
     <script src="script.js" defer></script>
   </head>
 
   <body class="container lg:text-xl lg:max-w-screen-lg lg:mx-auto">
     <header class="flex justify-between items-center md:w-full md:fixed md:h-16 lg:max-w-screen-lg">
-      <a href="#menu" id="home" class="inline-block md:hidden py-4 px-6 appearance-none focus:outline-none" aria-label="Open menu" aria-controls="menu">
+      <a href="#menu" id="home" class="inline-block md:hidden py-4 px-6 appearance-none focus:outline-none" aria-label="Open menu" data-en-aria-label="Open menu" data-it-aria-label="Apri il menu" aria-controls="menu">
         <svg id="btn-hamburger" class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <title>Menu</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -24,8 +24,8 @@
 
       <a class="md:w-full py-4 px-6 md:py-0 text-3xl md:text-4xl" href="work.html" aria-label="Works"></a>
 
-      <nav id="menu" class="container p-4 md:py-2" aria-label="Main navigation">
-        <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20" aria-label="Close menu">
+      <nav id="menu" class="container p-4 md:py-2" aria-label="Main navigation" data-en-aria-label="Main navigation" data-it-aria-label="Navigazione principale">
+        <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20" aria-label="Close menu" data-en-aria-label="Close menu" data-it-aria-label="Chiudi il menu">
           <svg id="btn-close" class="fill-current h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <time>Close</time>
             <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
@@ -34,9 +34,17 @@
 
         <ul class="min-h-full flex flex-col md:flex-row justify-around md:justify-end items-center relative z-10 py-12 md:py-0 text-3xl md:text-2xl">
           <li class="px-4 hover:text-blue-400"><a href="home.html">Home</a></li>
-          <li class="px-4 hover:text-blue-400"><a href="work.html">Works</a></li>
-          <li class="px-4 hover:text-blue-400"><a href="bio.html">Bio</a></li>
-          <li class="px-4 hover:text-blue-400"><a href="contact.html">Contact</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="work.html" data-en="Works" data-it="Lavori">Works</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="bio.html" data-en="Bio" data-it="Biografia">Bio</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="contact.html" data-en="Contact" data-it="Contatti">Contact</a></li>
+          <li class="language-switcher">
+            <button class="language-button" type="button" data-language="it" aria-label="Italiano" data-en-aria-label="Italian" data-it-aria-label="Italiano" title="Italiano" data-en-title="Italian" data-it-title="Italiano" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="italy-flag-clip"><circle cx="12" cy="12" r="12" /></clipPath></defs><g clip-path="url(#italy-flag-clip)"><path fill="#009246" d="M0 0h8v24H0z"/><path fill="#fff" d="M8 0h8v24H8z"/><path fill="#ce2b37" d="M16 0h8v24h-8z"/></g></svg>
+            </button>
+            <button class="language-button" type="button" data-language="en" aria-label="English" data-en-aria-label="English" data-it-aria-label="Inglese" title="English" data-en-title="English" data-it-title="Inglese" aria-pressed="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="union-jack-clip"><circle cx="12" cy="12" r="12" /></clipPath></defs><g clip-path="url(#union-jack-clip)"><path fill="#012169" d="M0 0h24v24H0z"/><path fill="#fff" d="M0 0h4l20 14v4h-4L0 4zm20 0h4v4L4 24H0v-4z"/><path fill="#c8102e" d="M0 0h2l22 15.4V18L0 2.6zm22 0h2v2.6L2 24H0v-2.6z"/><path fill="#fff" d="M0 8h24v8H0zM8 0h8v24H8z"/><path fill="#c8102e" d="M0 10h24v4H0zM10 0h4v24h-4z"/></g></svg>
+            </button>
+          </li>
           <li id="theme-toggle" class="px-4"><svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10v-20zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z" /></svg></li>
         </ul>
       </nav>
@@ -44,13 +52,13 @@
 
     <main class="container mx-auto px-4 py-8 md:pt-24 md:pb-12">
       <div class="text-center">
-        <div class="profile-image-flip mx-auto mb-4" aria-label="Gaia Monteforte portrait">
+        <div class="profile-image-flip mx-auto mb-4" aria-label="Gaia Monteforte portrait" data-en-aria-label="Gaia Monteforte portrait" data-it-aria-label="Ritratto di Gaia Monteforte">
           <div class="profile-image-flip-inner">
-            <img class="profile-image-flip-front" src="assets/contact/Bio_pic.png" alt="Gaia Monteforte" />
+            <img class="profile-image-flip-front" src="assets/contact/Bio_pic.png" alt="Gaia Monteforte" data-en-alt="Gaia Monteforte" data-it-alt="Gaia Monteforte" />
             <img class="profile-image-flip-back" src="assets/contact/bio_2.jpg" alt="" aria-hidden="true" />
           </div>
         </div>
-        <h1 class="artist-name about-heading mb-6">About me</h1>
+        <h1 class="artist-name about-heading mb-6" data-en="About me" data-it="Chi sono">About me</h1>
       </div>
 
       <div class="max-w-2xl mx-auto px-8 md:px-16">
