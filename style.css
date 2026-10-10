@@ -1,10 +1,17 @@
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "GFS Didot", "Times New Roman", serif;
+}
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: #f7f3ee;
   color: #2d3748;
-  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body > footer {
@@ -52,18 +59,17 @@ body.dark .social-links {
 }
 
 .artist-name {
-  font-family: Arial, sans-serif;
   font-weight: 400;
 }
 
 .about-heading {
-  font-family: "Water Brush", cursive;
+  font-family: "Allura", cursive;
   font-size: 3.5rem;
   line-height: 1.2;
 }
 
 .contact-heading {
-  font-family: "Water Brush", cursive;
+  font-family: "Allura", cursive;
   font-size: 1.75rem;
   line-height: 1.2;
 }
@@ -83,7 +89,7 @@ body.dark .social-links {
 
 .dark .contact-lamp-hotspot::after {
   position: absolute;
-  inset: -30%;
+  inset: -5%;
   background: radial-gradient(
     circle,
     rgba(145, 255, 125, 0.22) 0%,
@@ -95,11 +101,102 @@ body.dark .social-links {
   mix-blend-mode: screen;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  animation: lamp-glow-startup 3s linear forwards;
 }
 
-.dark .contact-lamp-hotspot:hover::after {
-  opacity: 1;
+@keyframes lamp-glow-startup {
+  0%,
+  8%,
+  17%,
+  25%,
+  42%,
+  50% {
+    opacity: 0;
+  }
+
+  4%,
+  21%,
+  34%,
+  46%,
+  58% {
+    opacity: 0.75;
+  }
+
+  12%,
+  30%,
+  38% {
+    opacity: 0.2;
+  }
+
+  68%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .dark .contact-lamp-hotspot::after {
+    animation-name: lamp-glow-desktop-startup;
+    animation-duration: 8s;
+  }
+
+  .dark .contact-lamp-hotspot::before {
+    position: absolute;
+    inset: -5%;
+    background: radial-gradient(
+      circle,
+      rgba(145, 255, 125, 0.22) 0%,
+      rgba(105, 235, 95, 0.1) 42%,
+      transparent 72%
+    );
+    content: "";
+    filter: blur(4px);
+    mix-blend-mode: screen;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .dark .contact-lamp-hotspot:hover::before {
+    opacity: 1;
+  }
+}
+
+@keyframes lamp-glow-desktop-startup {
+  0%,
+  3%,
+  6%,
+  9%,
+  15%,
+  18%,
+  26%,
+  34% {
+    opacity: 0;
+  }
+
+  1.5%,
+  7.5%,
+  12%,
+  17%,
+  21%,
+  29% {
+    opacity: 0.75;
+  }
+
+  4.5%,
+  10.5%,
+  19.5% {
+    opacity: 0.2;
+  }
+
+  37.5%,
+  93.75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 header,
@@ -320,7 +417,7 @@ header {
   justify-content: center;
   margin: 0;
   padding: 1rem 1.25rem;
-  font-family: "Water Brush", cursive;
+  font-family: "Allura", cursive;
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1.4;
@@ -343,6 +440,12 @@ header {
 
 .work-project-card:hover .work-project-preview .work-project-title {
   opacity: 1;
+}
+
+@media (hover: none), (max-width: 767px) {
+  .work-project-preview .work-project-title {
+    opacity: 1;
+  }
 }
 
 .work-project-card:focus-visible {
@@ -823,6 +926,11 @@ header {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .dark .contact-lamp-hotspot::after {
+    animation: none;
+    opacity: 1;
+  }
+
   .magic-tails-cover-scene > .magic-tails-cover-foreground,
   .magic-tails-at-school-scene > .magic-tails-at-school-foreground,
   .magic-tails-villain-scene > .magic-tails-villain-foreground {
