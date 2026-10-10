@@ -756,9 +756,13 @@ header {
 }
 
 .magic-tails-pledge-badges .pledge-image-credit {
-  right: 0;
-  left: 0;
-  padding: 1.75rem 0.25rem 0.35rem;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0.4rem 0.25rem;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.8) 0%,
@@ -767,7 +771,10 @@ header {
   );
   font-size: 0.5625rem;
   line-height: 1.2;
-  opacity: 1;
+}
+
+.magic-tails-pledge-badges .pledge-artwork {
+  align-self: start;
 }
 
 .image-dialog {
