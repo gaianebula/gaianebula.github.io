@@ -519,7 +519,7 @@ header {
   opacity: 1;
 }
 
-@media (hover: none), (max-width: 767px) {
+@media (max-width: 767px) {
   .work-project-preview .work-project-title {
     opacity: 1;
   }
@@ -666,7 +666,7 @@ header {
   transition: filter 1.8s ease, opacity 1.8s ease;
 }
 
-@media (hover: none), (max-width: 767px) {
+@media (max-width: 767px) {
   .magic-tails-cover-scene > img:not(.magic-tails-cover-foreground),
   .magic-tails-at-school-scene > img:not(.magic-tails-at-school-foreground),
   .magic-tails-villain-scene > img:not(.magic-tails-villain-foreground) {
