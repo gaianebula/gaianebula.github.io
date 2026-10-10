@@ -223,10 +223,13 @@ header {
 }
 
 .mobile-language-switcher {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.75rem;
-  z-index: 70;
+  position: relative;
+}
+
+.mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .desktop-language-switcher {
@@ -964,6 +967,7 @@ header {
 #artist-bio {
   text-align: justify;
   text-align-last: left;
+  white-space: pre-line;
 }
 
 @media (min-width: 768px) {

@@ -24,15 +24,6 @@
 
       <a class="md:w-full py-4 px-6 md:py-0 text-3xl md:text-4xl" href="home.html" aria-label="Home"></a>
 
-      <div class="language-switcher mobile-language-switcher" aria-label="Language selector">
-        <button class="language-button" type="button" data-language="it" aria-label="Italiano" data-en-aria-label="Italian" data-it-aria-label="Italiano" title="Italiano" data-en-title="Italian" data-it-title="Italiano" aria-pressed="false">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="italy-flag-clip"><circle cx="12" cy="12" r="12" /></clipPath></defs><g clip-path="url(#italy-flag-clip)"><path fill="#009246" d="M0 0h8v24H0z"/><path fill="#fff" d="M8 0h8v24H8z"/><path fill="#ce2b37" d="M16 0h8v24h-8z"/></g></svg>
-        </button>
-        <button class="language-button" type="button" data-language="en" aria-label="English" data-en-aria-label="English" data-it-aria-label="Inglese" title="English" data-en-title="English" data-it-title="Inglese" aria-pressed="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="union-jack-clip"><circle cx="12" cy="12" r="12" /></clipPath></defs><g clip-path="url(#union-jack-clip)"><path fill="#012169" d="M0 0h24v24H0z"/><path fill="#fff" d="M0 0h4l20 14v4h-4L0 4zm20 0h4v4L4 24H0v-4z"/><path fill="#c8102e" d="M0 0h2l22 15.4V18L0 2.6zm22 0h2v2.6L2 24H0v-2.6z"/><path fill="#fff" d="M0 8h24v8H0zM8 0h8v24H8z"/><path fill="#c8102e" d="M0 10h24v4H0zM10 0h4v24h-4z"/></g></svg>
-        </button>
-      </div>
-
       <nav id="menu" class="container p-4 md:py-2" aria-label="Main navigation" data-en-aria-label="Main navigation" data-it-aria-label="Navigazione principale">
         <a href="#home" id="menu-close" class="absolute md:hidden top-0 right-0 p-6 z-20" aria-label="Close menu" data-en-aria-label="Close menu" data-it-aria-label="Chiudi il menu">
           <svg id="btn-close" class="fill-current h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -54,7 +45,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="union-jack-clip-desktop"><circle cx="12" cy="12" r="12" /></clipPath></defs><g clip-path="url(#union-jack-clip-desktop)"><path fill="#012169" d="M0 0h24v24H0z"/><path fill="#fff" d="M0 0h4l20 14v4h-4L0 4zm20 0h4v4L4 24H0v-4z"/><path fill="#c8102e" d="M0 0h2l22 15.4V18L0 2.6zm22 0h2v2.6L2 24H0v-2.6z"/><path fill="#fff" d="M0 8h24v8H0zM8 0h8v24H8z"/><path fill="#c8102e" d="M0 10h24v4H0zM10 0h4v24h-4z"/></g></svg>
             </button>
           </li>
-          <li id="theme-toggle" class="px-4"><svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10v-20zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z" /></svg></li>
+          <li class="mobile-controls">
+            <div class="language-switcher mobile-language-switcher" aria-label="Language selector">
+              <button class="language-button" type="button" data-language="it" aria-label="Italiano" data-en-aria-label="Italian" data-it-aria-label="Italiano" title="Italiano" data-en-title="Italian" data-it-title="Italiano" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="italy-flag-clip"><circle cx="12" cy="12" r="12" /></clipPath></defs><g clip-path="url(#italy-flag-clip)"><path fill="#009246" d="M0 0h8v24H0z"/><path fill="#fff" d="M8 0h8v24H8z"/><path fill="#ce2b37" d="M16 0h8v24h-8z"/></g></svg>
+              </button>
+              <button class="language-button" type="button" data-language="en" aria-label="English" data-en-aria-label="English" data-it-aria-label="Inglese" title="English" data-en-title="English" data-it-title="Inglese" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="union-jack-clip"><circle cx="12" cy="12" r="12" /></clipPath></defs><g clip-path="url(#union-jack-clip)"><path fill="#012169" d="M0 0h24v24H0z"/><path fill="#fff" d="M0 0h4l20 14v4h-4L0 4zm20 0h4v4L4 24H0v-4z"/><path fill="#c8102e" d="M0 0h2l22 15.4V18L0 2.6zm22 0h2v2.6L2 24H0v-2.6z"/><path fill="#fff" d="M0 8h24v8H0zM8 0h8v24H8z"/><path fill="#c8102e" d="M0 10h24v4H0zM10 0h4v24h-4z"/></g></svg>
+              </button>
+            </div>
+            <div id="theme-toggle" class="px-4"><svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10v-20zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z" /></svg></div>
+          </li>
         </ul>
       </nav>
     </header>
