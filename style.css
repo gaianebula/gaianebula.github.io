@@ -539,6 +539,7 @@ header {
   display: block;
   width: 100%;
   height: auto;
+  border: 1px solid transparent;
   border-radius: 0.375rem;
   cursor: zoom-in;
 }
@@ -546,6 +547,34 @@ header {
 .project-popup-gallery img:focus-visible {
   outline: 2px solid #b794f4;
   outline-offset: 3px;
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .project-popup-gallery img,
+  .magic-tails-cover-scene > img,
+  .magic-tails-at-school-scene > img,
+  .magic-tails-villain-scene > img,
+  .pledge-artwork img,
+  .work-project-card img {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .project-popup-gallery img:hover,
+  .project-popup-gallery img:focus-visible,
+  .magic-tails-cover-scene > img:hover,
+  .magic-tails-cover-scene > img:focus-visible,
+  .magic-tails-at-school-scene > img:hover,
+  .magic-tails-at-school-scene > img:focus-visible,
+  .magic-tails-villain-scene > img:hover,
+  .magic-tails-villain-scene > img:focus-visible,
+  .pledge-artwork img:hover,
+  .pledge-artwork img:focus-visible,
+  .work-project-card img:hover,
+  .work-project-card img:focus-visible {
+    transform: scale(1.015);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 0 18px rgba(255, 255, 255, 0.12);
+  }
 }
 
 .pledge-artwork {
