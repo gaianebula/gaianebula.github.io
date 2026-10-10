@@ -96,10 +96,20 @@ body.dark .social-links {
   left: 42%;
   width: 18%;
   aspect-ratio: 1;
+  border: 0;
   border-radius: 50%;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
-.dark .contact-lamp-hotspot::after {
+.contact-lamp-hotspot:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.contact-lamp-hotspot::after {
   position: absolute;
   inset: -5%;
   background: radial-gradient(
@@ -113,7 +123,23 @@ body.dark .social-links {
   mix-blend-mode: screen;
   opacity: 0;
   pointer-events: none;
+}
+
+.dark .contact-lamp-hotspot::after {
   animation: lamp-glow-startup 3s linear forwards;
+}
+
+@media (max-width: 767px) {
+  .dark .contact-lamp-hotspot::after {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .contact-lamp-hotspot.is-lit::after,
+  .dark .contact-lamp-hotspot.is-lit::after {
+    opacity: 1;
+  }
 }
 
 @keyframes lamp-glow-startup {
@@ -230,6 +256,17 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .mobile-controls {
+    padding-left: 1rem;
+  }
+
+  .mobile-controls #theme-toggle {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .language-switcher.desktop-language-switcher {
@@ -1008,6 +1045,16 @@ header {
 
   .profile-image-flip.is-intro-flipping .profile-image-flip-inner {
     animation: none;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .dark .contact-lamp-hotspot::after {
+    opacity: 0;
+  }
+
+  .dark .contact-lamp-hotspot.is-lit::after {
+    opacity: 1;
   }
 }
 

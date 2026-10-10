@@ -170,6 +170,18 @@ if (themeToggle) {
   themeToggle.addEventListener('click', toggleTheme);
 }
 
+var lampToggle = document.querySelector('.contact-lamp-hotspot');
+if (lampToggle) {
+  lampToggle.addEventListener('click', function () {
+    if (!window.matchMedia('(max-width: 767px)').matches) {
+      return;
+    }
+
+    var isLit = lampToggle.classList.toggle('is-lit');
+    lampToggle.setAttribute('aria-pressed', isLit);
+  });
+}
+
 var projectDialog = document.getElementById('project-dialog');
 if (projectDialog) {
   var projectDialogTitle = document.getElementById('project-dialog-title');
