@@ -256,11 +256,16 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-direction: row;
 }
 
 @media only screen and (max-width: 767px) {
   .mobile-controls {
-    padding-left: 1rem;
+    order: -1;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 0;
+    margin-bottom: 0.25rem;
   }
 
   .mobile-controls #theme-toggle {
@@ -662,6 +667,12 @@ header {
 }
 
 @media (hover: none), (max-width: 767px) {
+  .magic-tails-cover-scene > img:not(.magic-tails-cover-foreground),
+  .magic-tails-at-school-scene > img:not(.magic-tails-at-school-foreground),
+  .magic-tails-villain-scene > img:not(.magic-tails-villain-foreground) {
+    display: none;
+  }
+
   .magic-tails-cover-scene > .magic-tails-cover-foreground,
   .magic-tails-at-school-scene > .magic-tails-at-school-foreground,
   .magic-tails-villain-scene > .magic-tails-villain-foreground {
