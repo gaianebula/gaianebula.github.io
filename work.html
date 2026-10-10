@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="tailwind.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Water+Brush&display=swap" rel="stylesheet" />
     <title>Works | Gaia Monteforte</title>
     <script src="bio.js"></script>
     <script src="script.js" defer></script>
@@ -32,7 +35,7 @@
         <ul class="min-h-full flex flex-col md:flex-row justify-around md:justify-end items-center relative z-10 py-12 md:py-0 text-3xl md:text-2xl">
           <li class="px-4 hover:text-blue-400"><a href="home.html">Home</a></li>
           <li class="px-4 hover:text-blue-400"><a href="work.html">Works</a></li>
-          <li class="px-4 hover:text-blue-400"><a href="profile.html">Profile</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="bio.html">Bio</a></li>
           <li class="px-4 hover:text-blue-400"><a href="contact.html">Contact</a></li>
           <li id="theme-toggle" class="px-4"><svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10v-20zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z" /></svg></li>
         </ul>
@@ -43,16 +46,16 @@
       <div class="work-projects container mx-auto px-4 py-8 md:pt-24 md:pb-12">
         <button class="work-project-card image-card" type="button" data-project="trollhunters" aria-haspopup="dialog">
           <span class="work-project-preview">
-            <img class="project-preview-trollhunters" src="assets/works/trollhunters/00 Gaia Monteforte_sito_trollhunters.png" alt="" />
+            <img class="project-preview-trollhunters" src="assets/works/trollhunters/Trollhunters_cover.png" alt="" />
+            <span class="work-project-title">Trollhunters</span>
           </span>
-          <span class="work-project-title">Trollhunters</span>
         </button>
 
         <button class="work-project-card image-card" type="button" data-project="magic-tales" aria-haspopup="dialog">
           <span class="work-project-preview">
-            <img class="project-preview-magic-tails" src="assets/works/magic_tales/01_Villain con fondale.png" alt="" />
+            <img class="project-preview-magic-tails" src="assets/works/magic_tails/preview/Preview_variant_Magic Tails_1280 x 720 px.png" alt="" />
+            <span class="work-project-title">Magic Tails</span>
           </span>
-          <span class="work-project-title">Magic Tails</span>
         </button>
       </div>
     </main>
@@ -63,15 +66,46 @@
         <button class="project-dialog-close" type="button" aria-label="Close project gallery">&times;</button>
       </div>
       <div class="project-popup-gallery" data-popup-project="trollhunters" hidden>
-        <img src="assets/works/trollhunters/00 Gaia Monteforte_sito_trollhunters.png" alt="Trollhunters main illustration" />
-        <img src="assets/works/trollhunters/01 Gaia Monteforte_sito_trollhunters_Illu.png" alt="Trollhunters illustration" />
-        <img src="assets/works/trollhunters/02 Gaia Monteforte_sito_trollhunters_sketches.png" alt="Trollhunters sketches" />
-        <img src="assets/works/trollhunters/03 Gaia Monteforte_sito_trollhunters_process.png" alt="Trollhunters process sheet" />
-        <img src="assets/works/trollhunters/Gaia Monteforte_sito_trollhunters_illu v3.png" alt="Trollhunters final illustration version" />
+        <img src="assets/works/trollhunters/Preview_Trollhunters_1280 x 720 px.png" alt="Trollhunters preview" />
+        <img src="assets/works/trollhunters/Trollhunters_comics.png" alt="Trollhunters comics" />
+        <img src="assets/works/trollhunters/Trollhunters_illustrations.png" alt="Trollhunters illustrations" />
+        <img src="assets/works/trollhunters/Trollhunters_process.png" alt="Trollhunters process sheet" />
+        <img src="assets/works/trollhunters/Trollhunters_sketches.png" alt="Trollhunters sketches" />
       </div>
       <div class="project-popup-gallery" data-popup-project="magic-tales" hidden>
-        <img src="assets/works/magic_tales/00_Villain solo fondale.png" alt="Magic Tails villain illustration without background" />
-        <img src="assets/works/magic_tales/01_Villain con fondale.png" alt="Magic Tails villain illustration with background" />
+        <span class="pledge-artwork magic-tails-cover-scene">
+          <img src="assets/works/magic_tails/Cover/PS_Cover_A3_aprile 2026_fondale.png" alt="Magic Tails cover background illustration" />
+          <img class="magic-tails-cover-foreground" src="assets/works/magic_tails/Cover/Cover_MT_Jano Studio_2026.png" alt="Magic Tails finished cover illustration" />
+          <span class="pledge-image-credit">Created for Magic Tails RPG by Jano Studio, 2026, published in Italy by Avalon Sword</span>
+        </span>
+        <span class="pledge-artwork magic-tails-at-school-scene">
+          <img src="assets/works/magic_tails/scena calderone/At School_Jano Studio 2026_env.png" alt="Magic Tails at school environment illustration" />
+          <img class="magic-tails-at-school-foreground" src="assets/works/magic_tails/scena calderone/At School_Jano Studio 2026.png" alt="Magic Tails at school final illustration" />
+          <span class="pledge-image-credit">Created for Magic Tails RPG by Jano Studio, 2026, published in Italy by Avalon Sword</span>
+        </span>
+        <span class="pledge-artwork magic-tails-villain-scene">
+          <img src="assets/works/magic_tails/Villain/Villain solo fondale.png" alt="Magic Tails villain scene background" />
+          <img class="magic-tails-villain-foreground" src="assets/works/magic_tails/Villain/Def_Villain con fondale.png" alt="Magic Tails villain characters in the scene" />
+          <span class="pledge-image-credit">Created for Magic Tails RPG by Jano Studio, 2026, published in Italy by Avalon Sword</span>
+        </span>
+        <div class="magic-tails-pledge-badges">
+          <span class="pledge-artwork">
+            <img src="assets/works/magic_tails/Pledge/05_Pledge_Iron_insegna_Nebula_art.png" alt="Magic Tails Iron pledge Nebula Art badge" />
+            <span class="pledge-image-credit">Created for Magic Tails RPG by Jano Studio, 2026, published in Italy by Avalon Sword</span>
+          </span>
+          <span class="pledge-artwork">
+            <img src="assets/works/magic_tails/Pledge/06_Pledge_copper_insegna_Nebula_art.png" alt="Magic Tails Copper pledge Nebula Art badge" />
+            <span class="pledge-image-credit">Created for Magic Tails RPG by Jano Studio, 2026, published in Italy by Avalon Sword</span>
+          </span>
+          <span class="pledge-artwork">
+            <img src="assets/works/magic_tails/Pledge/07_Pledge_Silver_insegna_Nebula_art.png" alt="Magic Tails Silver pledge Nebula Art badge" />
+            <span class="pledge-image-credit">Created for Magic Tails RPG by Jano Studio, 2026, published in Italy by Avalon Sword</span>
+          </span>
+          <span class="pledge-artwork">
+            <img src="assets/works/magic_tails/Pledge/08_Pledge_Gold_insegna_Nebula_art.png" alt="Magic Tails Gold pledge Nebula Art badge" />
+            <span class="pledge-image-credit">Created for Magic Tails RPG by Jano Studio, 2026, published in Italy by Avalon Sword</span>
+          </span>
+        </div>
       </div>
     </dialog>
 

@@ -37,6 +37,19 @@ if (profileImage) {
   });
   mobilePortraitQuery.addEventListener('change', updatePortraitInteraction);
   updatePortraitInteraction();
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var profileImageInner = profileImage.querySelector('.profile-image-flip-inner');
+    var finishIntroFlip = function (event) {
+      if (event.animationName === 'profile-image-reveal') {
+        profileImage.classList.remove('is-intro-flipping');
+        profileImageInner.removeEventListener('animationend', finishIntroFlip);
+      }
+    };
+
+    profileImageInner.addEventListener('animationend', finishIntroFlip);
+    profileImage.classList.add('is-intro-flipping');
+  }
 }
 
 var yearElement = document.getElementById('current-year');

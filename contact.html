@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="tailwind.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Water+Brush&display=swap" rel="stylesheet" />
     <title>Contact | Gaia Monteforte</title>
     <script src="bio.js"></script>
     <script src="script.js" defer></script>
@@ -32,7 +35,7 @@
         <ul class="min-h-full flex flex-col md:flex-row justify-around md:justify-end items-center relative z-10 py-12 md:py-0 text-3xl md:text-2xl">
           <li class="px-4 hover:text-blue-400"><a href="home.html">Home</a></li>
           <li class="px-4 hover:text-blue-400"><a href="work.html">Works</a></li>
-          <li class="px-4 hover:text-blue-400"><a href="profile.html">Profile</a></li>
+          <li class="px-4 hover:text-blue-400"><a href="bio.html">Bio</a></li>
           <li class="px-4 hover:text-blue-400"><a href="contact.html">Contact</a></li>
           <li id="theme-toggle" class="px-4"><svg class="fill-current h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10v-20zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z" /></svg></li>
         </ul>
@@ -44,7 +47,7 @@
         <div class="w-full md:w-1/2 text-left">
           <h1 class="text-4xl font-bold mb-6">Contact</h1>
           <div class="max-w-xl bg-transparent p-0">
-            <p class="text-xl mb-4">Get in touch</p>
+            <p class="contact-heading text-xl mb-4">Get in touch</p>
             <a class="contact-email text-2xl" href="mailto:helennmarley@gmail.com">helennmarley@gmail.com</a>
             <form id="contact-form" class="contact-form mt-8">
               <label for="contact-name">Name</label>
@@ -62,8 +65,9 @@
           </div>
         </div>
 
-        <div class="w-full md:w-1/2 overflow-hidden rounded-lg">
+        <div class="contact-artwork w-full md:w-1/2 overflow-hidden rounded-lg">
           <img class="w-full object-cover" src="assets/contact/Conattti_scrivania detective.png" alt="Gaia Monteforte desk illustration" />
+          <span class="contact-lamp-hotspot" aria-hidden="true"></span>
         </div>
       </div>
     </main>
