@@ -18,6 +18,18 @@ body > footer {
   margin-top: auto;
 }
 
+.home-decoration {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 51;
+  width: min(48vw, 42rem);
+  height: auto;
+  transform: rotate(0deg);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
 .social-links {
   --social-mark: #f7f3ee;
   display: flex;
