@@ -232,7 +232,7 @@ header {
   gap: 0.5rem;
 }
 
-.desktop-language-switcher {
+.language-switcher.desktop-language-switcher {
   display: none;
 }
 
@@ -371,7 +371,7 @@ header {
     display: none;
   }
 
-  .desktop-language-switcher {
+  .language-switcher.desktop-language-switcher {
     display: flex;
     position: static;
     margin-left: 0.5rem;
