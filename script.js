@@ -165,10 +165,9 @@ var toggleTheme = function () {
   localStorage.setItem('dark-theme', document.body.classList.contains('dark'));
 };
 
-var themeToggle = document.getElementById('theme-toggle');
-if (themeToggle) {
+document.querySelectorAll('.theme-toggle').forEach(function (themeToggle) {
   themeToggle.addEventListener('click', toggleTheme);
-}
+});
 
 var lampToggle = document.querySelector('.contact-lamp-hotspot');
 if (lampToggle) {

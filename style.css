@@ -259,6 +259,25 @@ header {
   flex-direction: row;
 }
 
+.theme-toggle {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
 @media only screen and (max-width: 767px) {
   .mobile-controls {
     order: -1;
@@ -268,10 +287,6 @@ header {
     margin-bottom: 0.25rem;
   }
 
-  .mobile-controls #theme-toggle {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 .language-switcher.desktop-language-switcher {
@@ -417,6 +432,7 @@ header {
     display: flex;
     position: static;
     margin-left: 0.5rem;
+    gap: 0.5rem;
   }
 }
 
