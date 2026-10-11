@@ -777,6 +777,11 @@ header {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   align-self: start;
+  touch-action: manipulation;
+}
+
+.magic-tails-pledge-badges .pledge-artwork {
+  touch-action: manipulation;
 }
 
 .magic-tails-at-school-scene > .pledge-image-credit,
@@ -787,6 +792,22 @@ header {
   padding: 0.85rem 0.4rem 0.4rem;
   font-size: 0.6875rem;
   line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+  .magic-tails-cover-scene .pledge-image-credit,
+  .magic-tails-at-school-scene .pledge-image-credit,
+  .magic-tails-villain-scene .pledge-image-credit,
+  .magic-tails-pledge-badges .pledge-image-credit {
+    opacity: 0;
+  }
+
+  .magic-tails-cover-scene.is-touched .pledge-image-credit,
+  .magic-tails-at-school-scene.is-touched .pledge-image-credit,
+  .magic-tails-villain-scene.is-touched .pledge-image-credit,
+  .magic-tails-pledge-badges .pledge-artwork.is-touched .pledge-image-credit {
+    opacity: 1;
+  }
 }
 
 .pledge-artwork--silver {

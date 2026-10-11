@@ -206,6 +206,36 @@ if (lampToggle) {
   });
 }
 
+var magicTailsTouchTargets = document.querySelectorAll('.magic-tails-cover-scene, .magic-tails-at-school-scene, .magic-tails-villain-scene, .magic-tails-pledge-badges .pledge-artwork');
+if (magicTailsTouchTargets.length) {
+  var isMobileViewport = function () {
+    return window.matchMedia('(max-width: 767px)').matches;
+  };
+
+  magicTailsTouchTargets.forEach(function (target) {
+    target.addEventListener('click', function (event) {
+      if (!isMobileViewport()) {
+        return;
+      }
+
+      event.stopPropagation();
+      target.classList.toggle('is-touched');
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!isMobileViewport()) {
+      return;
+    }
+
+    if (!event.target.closest('.magic-tails-cover-scene, .magic-tails-at-school-scene, .magic-tails-villain-scene, .magic-tails-pledge-badges .pledge-artwork')) {
+      magicTailsTouchTargets.forEach(function (target) {
+        target.classList.remove('is-touched');
+      });
+    }
+  });
+}
+
 var projectDialog = document.getElementById('project-dialog');
 if (projectDialog) {
   var projectDialogTitle = document.getElementById('project-dialog-title');
