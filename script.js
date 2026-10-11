@@ -212,18 +212,36 @@ if (projectDialog) {
   var projectDialogClose = projectDialog.querySelector('.project-dialog-close');
   var projectPopups = projectDialog.querySelectorAll('.project-popup-gallery');
   var hydrateProjectGallery = function (projectId) {
+    var isMobileViewport = window.matchMedia('(max-width: 767px)').matches;
+
     projectPopups.forEach(function (popup) {
       if (popup.dataset.popupProject !== projectId) {
         return;
       }
 
       popup.querySelectorAll('img').forEach(function (image) {
-        if (!image.dataset.src || image.getAttribute('src')) {
+        if (!image.dataset.src) {
           return;
         }
 
-        image.src = image.dataset.src;
-        delete image.dataset.src;
+        if (isMobileViewport && image.dataset.mobileHidden === 'true') {
+          image.removeAttribute('src');
+          image.removeAttribute('srcset');
+          image.removeAttribute('sizes');
+          return;
+        }
+
+        if (isMobileViewport && image.dataset.mobileSrcset) {
+          image.sizes = image.dataset.mobileSizes;
+          image.srcset = image.dataset.mobileSrcset;
+        } else {
+          image.removeAttribute('sizes');
+          image.removeAttribute('srcset');
+        }
+
+        if (image.getAttribute('src') !== image.dataset.src) {
+          image.src = image.dataset.src;
+        }
       });
     });
   };
@@ -270,7 +288,10 @@ if (projectDialog) {
 
   var showEnlargedImage = function () {
     var activeImage = activeProjectImages[activeImageIndex];
-    enlargedArtwork.src = activeImage.src;
+    var imageSource = window.matchMedia('(max-width: 767px)').matches
+      ? activeImage.currentSrc
+      : activeImage.dataset.src || activeImage.src;
+    enlargedArtwork.src = imageSource;
     enlargedArtwork.alt = activeImage.alt;
     previousArtwork.disabled = activeProjectImages.length < 2;
     nextArtwork.disabled = activeProjectImages.length < 2;
@@ -298,8 +319,12 @@ if (projectDialog) {
     image.setAttribute('aria-label', 'Enlarge: ' + image.alt);
 
     var openEnlargedImage = function () {
-      activeProjectImages = Array.from(image.closest('.project-popup-gallery').querySelectorAll('img'));
+      var isMobileViewport = window.matchMedia('(max-width: 767px)').matches;
+      activeProjectImages = Array.from(image.closest('.project-popup-gallery').querySelectorAll('img')).filter(function (galleryImage) {
+        return !isMobileViewport || galleryImage.dataset.mobileHidden !== 'true';
+      });
       activeImageIndex = activeProjectImages.indexOf(image);
+      imageDialog.classList.toggle('is-magic-tails', image.closest('.project-popup-gallery').dataset.popupProject === 'magic-tales');
       showEnlargedImage();
       imageDialog.showModal();
     };
