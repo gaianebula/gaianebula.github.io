@@ -795,11 +795,36 @@ header {
 }
 
 @media (max-width: 767px) {
+  .magic-tails-cover-scene,
+  .magic-tails-at-school-scene,
+  .magic-tails-villain-scene {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+    overflow: visible;
+  }
+
+  .magic-tails-cover-scene > img,
+  .magic-tails-at-school-scene > img,
+  .magic-tails-villain-scene > img {
+    height: auto;
+    aspect-ratio: auto;
+  }
+
   .magic-tails-cover-scene .pledge-image-credit,
   .magic-tails-at-school-scene .pledge-image-credit,
   .magic-tails-villain-scene .pledge-image-credit,
   .magic-tails-pledge-badges .pledge-image-credit {
+    position: static;
+    display: block;
     opacity: 0;
+    pointer-events: none;
+    background: transparent;
+    color: inherit;
+    padding: 0.5rem 0 0;
+    text-align: left;
+    font-size: 0.625rem;
+    line-height: 1.4;
   }
 
   .magic-tails-cover-scene.is-touched .pledge-image-credit,
