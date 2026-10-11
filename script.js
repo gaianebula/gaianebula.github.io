@@ -3,6 +3,15 @@ var bioElement = document.getElementById('artist-bio');
 var languageButtons = document.querySelectorAll('.language-button');
 var updateLanguageDropdown = function (switcher) {
   var isOpen = switcher.classList.contains('is-open');
+  var languageToggle = switcher.querySelector('.language-toggle');
+  if (languageToggle) {
+    languageToggle.setAttribute('aria-expanded', isOpen);
+    switcher.querySelectorAll('.language-button').forEach(function (button) {
+      button.setAttribute('aria-expanded', false);
+    });
+    return;
+  }
+
   switcher.querySelectorAll('.language-button').forEach(function (button) {
     button.setAttribute('aria-expanded', button.classList.contains('is-selected') && isOpen);
   });
@@ -59,6 +68,20 @@ languageButtons.forEach(function (button) {
   });
 });
 
+document.querySelectorAll('.language-toggle').forEach(function (button) {
+  button.addEventListener('click', function () {
+    var switcher = button.closest('.language-switcher');
+    document.querySelectorAll('.language-switcher.is-open').forEach(function (openSwitcher) {
+      if (openSwitcher !== switcher) {
+        openSwitcher.classList.remove('is-open');
+        updateLanguageDropdown(openSwitcher);
+      }
+    });
+    switcher.classList.toggle('is-open');
+    updateLanguageDropdown(switcher);
+  });
+});
+
 document.addEventListener('click', function (event) {
   document.querySelectorAll('.language-switcher.is-open').forEach(function (switcher) {
     if (!switcher.contains(event.target)) {
@@ -73,7 +96,9 @@ document.addEventListener('keydown', function (event) {
     document.querySelectorAll('.language-switcher.is-open').forEach(function (switcher) {
       switcher.classList.remove('is-open');
       updateLanguageDropdown(switcher);
-      switcher.querySelector('.language-button.is-selected').focus();
+      var languageToggle = switcher.querySelector('.language-toggle');
+      var selectedLanguage = switcher.querySelector('.language-button.is-selected');
+      (languageToggle || selectedLanguage).focus();
     });
   }
 });

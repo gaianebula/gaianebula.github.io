@@ -342,6 +342,31 @@ header {
   justify-content: center;
 }
 
+.language-toggle {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.language-toggle svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
 .language-button {
   display: inline-flex;
   width: 1.5rem;
@@ -428,11 +453,45 @@ header {
     display: none;
   }
 
+  .mobile-controls {
+    display: none;
+  }
+
   .language-switcher.desktop-language-switcher {
     display: flex;
-    position: static;
+    position: relative;
     margin-left: 0.5rem;
     gap: 0.5rem;
+  }
+
+  .desktop-language-switcher .language-button {
+    display: none;
+  }
+
+  .desktop-language-options {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    z-index: 80;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .desktop-language-switcher.is-open .desktop-language-options {
+    display: flex;
+  }
+
+  .desktop-language-switcher.is-open .desktop-language-options .language-button {
+    display: inline-flex;
+  }
+
+  .desktop-language-switcher.is-open .desktop-language-options .language-button[aria-pressed="false"] {
+    position: static;
+    transform: none;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
   }
 }
 
