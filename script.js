@@ -285,6 +285,21 @@ if (projectDialog) {
   var activeProjectImages = [];
   var activeImageIndex = 0;
   var imageFlashTimeout;
+  var imageCreditTimeout;
+
+  var showImageCredit = function () {
+    window.clearTimeout(imageCreditTimeout);
+
+    if (!imageDialog.classList.contains('is-magic-tails') || !window.matchMedia('(max-width: 767px)').matches) {
+      imageDialog.classList.remove('is-credit-hidden');
+      return;
+    }
+
+    imageDialog.classList.remove('is-credit-hidden');
+    imageCreditTimeout = window.setTimeout(function () {
+      imageDialog.classList.add('is-credit-hidden');
+    }, 2000);
+  };
 
   var showEnlargedImage = function () {
     var activeImage = activeProjectImages[activeImageIndex];
@@ -295,6 +310,7 @@ if (projectDialog) {
     enlargedArtwork.alt = activeImage.alt;
     previousArtwork.disabled = activeProjectImages.length < 2;
     nextArtwork.disabled = activeProjectImages.length < 2;
+    showImageCredit();
   };
 
   var flashImageDialog = function () {
@@ -348,6 +364,13 @@ if (projectDialog) {
 
   nextArtwork.addEventListener('click', function () {
     changeEnlargedImage(1);
+  });
+
+  enlargedArtwork.addEventListener('click', showImageCredit);
+
+  imageDialog.addEventListener('close', function () {
+    window.clearTimeout(imageCreditTimeout);
+    imageDialog.classList.remove('is-credit-hidden');
   });
 
   imageDialog.addEventListener('click', function (event) {

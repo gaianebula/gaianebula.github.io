@@ -921,6 +921,10 @@ header {
     text-align: center;
     pointer-events: none;
   }
+
+  .image-dialog.is-magic-tails.is-credit-hidden .image-dialog-credit {
+    display: none;
+  }
 }
 
 .image-dialog-nav {
