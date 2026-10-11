@@ -796,6 +796,10 @@ header {
 }
 
 @media (max-width: 767px) {
+  .project-popup-gallery[data-popup-project="magic-tales"] .pledge-image-credit {
+    display: none;
+  }
+
   .magic-tails-cover-scene,
   .magic-tails-at-school-scene,
   .magic-tails-villain-scene {
